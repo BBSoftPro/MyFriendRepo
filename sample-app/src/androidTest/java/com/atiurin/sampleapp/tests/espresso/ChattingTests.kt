@@ -9,6 +9,7 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.atiurin.sampleapp.activity.MainActivity
+import com.atiurin.sampleapp.helper.isChecked
 import com.atiurin.sampleapp.helper.typeText
 import com.atiurin.sampleapp.pages.ActivityChatPage
 import com.atiurin.sampleapp.pages.CustomClicksPage
@@ -62,6 +63,15 @@ class ChattingTests : BaseTest() {
                     rBBottomCenter.tap()
                     rBBottomLeft.tap()
                     rBCenterLeft.tap()
+
+                    assert(rBTopLeft.isChecked(3)) { "rB_top_left is marked" }
+                    assert(rBTopCenter.isChecked(3)) { "rB_top_center is marked" }
+                    assert(rBTopRight.isChecked(3)) { "rB_top_right is marked" }
+                    assert(rBCenterRight.isChecked(3)) { "rB_center_right is marked" }
+                    assert(rBBottomRight.isChecked(3)) { "rB_bottom_right is marked" }
+                    assert(rBBottomCenter.isChecked(3)) { "rB_bottom_center is marked" }
+                    assert(rBBottomLeft.isChecked(3)) { "rB_bottom_left is marked" }
+                    assert(rBCenterLeft.isChecked(3)) { "rB_center_left is marked" }
                 }
             }
         }
