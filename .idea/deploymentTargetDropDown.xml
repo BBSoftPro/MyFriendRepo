@@ -19,7 +19,20 @@
         </State>
       </entry>
       <entry key="ChattingTests (1)">
-        <State />
+        <State>
+          <runningDeviceTargetSelectedWithDropDown>
+            <Target>
+              <type value="RUNNING_DEVICE_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="SERIAL_NUMBER" />
+                  <value value="988964394854415a45" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </runningDeviceTargetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-02-05T07:25:44.893821300Z" />
+        </State>
       </entry>
       <entry key="before()">
         <State />

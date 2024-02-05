@@ -9,7 +9,6 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.atiurin.sampleapp.activity.MainActivity
-import com.atiurin.sampleapp.helper.staticWait
 import com.atiurin.sampleapp.helper.typeText
 import com.atiurin.sampleapp.pages.ActivityChatPage
 import com.atiurin.sampleapp.pages.CustomClicksPage
@@ -39,9 +38,7 @@ class ChattingTests : BaseTest() {
             with(ActivityChatPage) {
                 onView(toolbarTitle).check(matches(withText(friendName)))
                 textInput.typeText(message)
-                staticWait(1)
                 sendButton.tap()
-                staticWait(2)
                 Espresso.pressBack()
                 onView(withText(message)).check(matches(ViewMatchers.isDisplayed()))
             }
