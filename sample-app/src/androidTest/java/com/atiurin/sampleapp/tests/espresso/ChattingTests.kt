@@ -1,13 +1,20 @@
 package com.atiurin.sampleapp.tests.espresso
 
+import androidx.test.espresso.Espresso
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.atiurin.sampleapp.activity.MainActivity
-import com.atiurin.sampleapp.helper.isTextOnScreen
-import com.atiurin.sampleapp.helper.isViewDisplayed
+import com.atiurin.sampleapp.helper.staticWait
 import com.atiurin.sampleapp.helper.typeText
-import com.atiurin.sampleapp.pages.UIElementPage
+import com.atiurin.sampleapp.pages.ActivityChatPage
+import com.atiurin.sampleapp.pages.CustomClicksPage
+import com.atiurin.sampleapp.pages.FriendsListPage
+import com.atiurin.sampleapp.pages.MainMenuPage
 import com.atiurin.sampleapp.tests.BaseTest
 import com.atiurin.ultron.extensions.tap
 import org.junit.Rule
@@ -16,21 +23,54 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
-class ChattingTests: BaseTest() {
+class ChattingTests : BaseTest() {
 
     @get:Rule
     val activityTestRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-    fun textWithMyFriend() {
-        with(UIElementPage) {
-            isTextOnScreen("Friends")
-            nameChandler.isViewDisplayed()
-            nameChandler.tap()
-            textInput.typeText("Hello Rachel")
+    fun testCase1() {
+        val friendName = "Monica Geller"
+        val message = "Hi Monica How are you?"
+        with(FriendsListPage) {
+            checkOnBoardPage()
+            nameMatcher(friendName).tap()
 
-            messageInputText.isViewDisplayed()
-
+            with(ActivityChatPage) {
+                onView(toolbarTitle).check(matches(withText(friendName)))
+                textInput.typeText(message)
+                staticWait(1)
+                sendButton.tap()
+                staticWait(2)
+                Espresso.pressBack()
+                onView(withText(message)).check(matches(ViewMatchers.isDisplayed()))
+            }
         }
+    }
+
+    @Test
+    fun testCase2() {
+        with(FriendsListPage) {
+            checkOnBoardPage()
+            mainManuBtn.tap()
+            with(MainMenuPage) {
+                customClicks.tap()
+                with(CustomClicksPage) {
+                    onView(selectorObject).check(matches(ViewMatchers.isDisplayed()))
+                    rBTopLeft.tap()
+                    rBTopCenter.tap()
+                    rBTopRight.tap()
+                    rBCenterRight.tap()
+                    rBBottomRight.tap()
+                    rBBottomCenter.tap()
+                    rBBottomLeft.tap()
+                    rBCenterLeft.tap()
+                }
+            }
+        }
+    }
+
+    private fun checkOnBoardPage() {
+        onView(withText("Friends")).check(matches(ViewMatchers.isDisplayed()))
     }
 }
