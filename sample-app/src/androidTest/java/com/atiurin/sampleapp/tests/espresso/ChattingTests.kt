@@ -63,8 +63,8 @@ class ChattingTests : BaseTest() {
                     rBCenterRight.tap()
                     rBBottomRight.tap()
                     rBBottomCenter.tap()
-//                    rBBottomLeft.tap()
-//                    rBCenterLeft.tap()
+                    rBBottomLeft.tap()
+                    rBCenterLeft.tap()
 
 
                     assertAll(
