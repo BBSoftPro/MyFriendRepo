@@ -2,25 +2,6 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="ChattingTests">
-        <State>
-          <targetSelectedWithDropDown>
-            <Target>
-              <type value="QUICK_BOOT_TARGET" />
-              <deviceKey>
-                <Key>
-                  <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="C:\Users\Lasha\.android\avd\Pixel_4a_Edited_API_29.avd" />
-                </Key>
-              </deviceKey>
-            </Target>
-          </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-02-03T00:31:34.024137200Z" />
-        </State>
-      </entry>
-      <entry key="ChattingTests (1)">
-        <State />
-      </entry>
       <entry key="sample-app">
         <State>
           <runningDeviceTargetSelectedWithDropDown>
@@ -37,27 +18,14 @@
           <timeTargetWasSelectedWithDropDown value="2024-02-02T13:09:24.075508200Z" />
         </State>
       </entry>
+      <entry key="test1()">
+        <State />
+      </entry>
       <entry key="testCase2()">
         <State />
       </entry>
-      <entry key="testCase2() (1)">
+      <entry key="textWithMyFriend()">
         <State />
-      </entry>
-      <entry key="textWithMyFriend() (2)">
-        <State>
-          <targetSelectedWithDropDown>
-            <Target>
-              <type value="QUICK_BOOT_TARGET" />
-              <deviceKey>
-                <Key>
-                  <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="C:\Users\Lasha\.android\avd\Pixel_4a_Edited_API_29.avd" />
-                </Key>
-              </deviceKey>
-            </Target>
-          </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-02-03T00:14:05.000630700Z" />
-        </State>
       </entry>
     </value>
   </component>
