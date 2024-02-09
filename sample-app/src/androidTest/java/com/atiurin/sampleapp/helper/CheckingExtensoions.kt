@@ -28,6 +28,14 @@ fun Matcher<View>.assertIfViewIsNotDisplayed() {
 }
 
 /**
+ * Check if is Displayed with view Matcher
+ */
+fun Matcher<View>.assertIfViewIsDisplayed() {
+    waitForViewVisible(3)
+    onView(this).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+}
+
+/**
  * Check if is Enabled with view Matcher
  */
 fun Matcher<View>.assertIfViewIsEnabled() {
@@ -82,7 +90,8 @@ fun Matcher<View>.assertIsNotViewDisplayed() {
  */
 fun Matcher<View>.assertIsViewDisplayedScrollTo() {
     waitForViewVisible(5)
-    onView(this).perform(ViewActions.scrollTo()).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+    onView(this).perform(ViewActions.scrollTo())
+        .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
 }
 
 /**
@@ -106,7 +115,12 @@ fun isTextOnScreen(textOnScreen: String, timeInSec: Int = 1): Boolean {
  */
 fun Matcher<View>.assertIsRecyclerViewScrollTo() {
     waitForViewVisible(5)
-    onView(this).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, ViewActions.scrollTo()))
+    onView(this).perform(
+        RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+            0,
+            ViewActions.scrollTo()
+        )
+    )
 }
 
 /**
@@ -156,4 +170,11 @@ fun Matcher<View>.getViewPagerCount(): Int {
 fun Matcher<View>.assertIfViewIsFocused(timeOutInSec: Int = 3) {
     waitForViewVisible(timeOutInSec)
     onView(this).check(ViewAssertions.matches(ViewMatchers.isFocused()))
+}
+
+/**
+ * assert if is checked
+ */
+fun Matcher<View>.assertIsChecked(message: String, timeOutInSec: Int = 3) {
+    assert(this.isChecked(timeOutInSec)) { message }
 }
